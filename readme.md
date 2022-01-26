@@ -84,6 +84,14 @@
     - String next() → 문자열로 리턴
     - int nextInt() → 정수로 리턴
     - String nextLine() → ‘\n’을 포함하는 한 라인을 읽고 ‘\n’을 버린 나머지만 리턴
+- **System.in ?**
+    - InputStream 타입의 필드
+    ```java
+    Scanner scan = new Scanner(System.in) 
+    =>
+    InputStream inputstream = System.in
+    Scanner scan = new Scanner(inputstream);
+    ```
 - 입력 값으로 **배열 생성하기**
     
     ```java
@@ -101,7 +109,7 @@
     #hasNextInt() -> 입력값이 정수일경우 true를 반환하고 정수가 아닐 경우 바로 입력 종료
     ```
     
-- CharAt → String으로 저장된 문자열 중에서 한 글자만 선택해서 char 타입으로 변환
+- **CharAt → String으로 저장된 문자열 중에서 한 글자만 선택해서 char 타입으로 변환**
     - charAt → 쓸 경우 아스키코드 대응 문자가 나오지 않게 -’0’ 선언
     
     ```java
@@ -111,3 +119,7 @@
     c = str.charAt(0);
     System.out.println(c) ==> '안'
     ```
+- **charAt()**
+    - Scanner는 char타입 데이터 받을 수 없음 -> 효율
+    - String으로 저장된 문자열 중 한 글자만 선택해서 char 타입으로 변환
+    - charAt(0) -> 원래의 값
