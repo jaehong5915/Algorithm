@@ -649,3 +649,107 @@ print(result)
     result = list(combinations_with_replacement(a,2))
     ==> [(a,a) , (a,b), (a,c) ,(b,b) ,...,(c,c)]
     ```
+    
+- **heapq (heapq.heappush() , heapq.heappop())**
+    - 다익스트라 최단 경로 알고리즘을 포함해 우선순위 큐 기능 구현시 사용
+    - 원소를 힙에 전부 넣었다가 빼면 크기순 정렬
+    - 삽입 - .heappush() / 꺼냄 - .heappop()
+    
+    ```python
+    # 힙 정렬 오름차순
+    import heapq
+    
+    def heapsort(iter):
+    	h = []
+    	result = []
+    	for value in iter:
+    		heapq.heappush(h,value)
+    	for i(_) in range(len(h)):
+    		result.append(heapq.heappush(h))
+    	return result
+    
+    result = heapsort([1,3,4,5,2,7])
+    ==> [1,2,3,4,5,7]
+    
+    #내림차순
+    import heapq
+    
+    def heapsort(iter):
+    	h =[]
+    	result = []
+    	for value in iter:
+    		heapq.heappush(h,-value) //-역순주고 다시 빼낼때 - 붙여서 빼냄
+    	for _ in range(len(h)):
+    		result.append(-heapq.heappush(h))
+    	return result
+    
+    ```
+    
+- **bisect - bisect_left(), bisect_right()**
+    - ‘정렬된 배열’에서 특정 원소를 찾아야 할 때 매우 효과적으로 사용
+    - bisect_left() → 정렬 순서 유지, 리스트 a에 데이터 x를 삽입할 가장 왼쪽 인덱스
+    - bisect_right() → 정렬 순서 유저, 리스트 a에 데이터 x를 삽입할 가장 오른쪽 인덱스
+    
+    ```python
+    #[left, right] 사이 속한 인덱스 개수 반환 함수
+    
+    from bisect import bisect_left, bisect right
+    
+    def count_by_range(a, left_value, right_value):
+    	right_index = bisect_right(a,right_value)
+    	left_index = bisect_left(a,left_value)
+    	return right_index - left_index
+    
+    a = [1,2,3,3,3,3,4,4,8,9]
+    # 값이 4인 데이터 개수 출력 (left value = right value)
+    print(count_by_range(a,4,4))
+    # 값이 [-1, 3] 범위에 있는 데이터 개수 출력 
+    print(count_by_range(a,-1,3))
+    ```
+    
+- **collections - deque, Counter**
+    - deque → 첫번째 원소 제거 : popleft(), 첫번째 원소 삽입 : appendleft()
+    - counter → 원소 횟수 세기
+    
+    ```python
+    from collections import deque, Counter
+    
+    #리스트 원소 삽입
+    data = deque([2,3,4])
+    data.appendleft(1)
+    data.append(5)
+    
+    print(data) ==> deque([1,2,3,4,5])
+    print(list(data)) ==> [1,2,3,4,5]
+    
+    #등장 횟수 세기
+    counter = Counter(['red','blue','red','green','blue'])
+    
+    print(counter['blue']) ==> 2
+    print(counter['red'])  ==> 2
+    print(dict(counter))   ==> {'red':2, 'blue':2, 'green':1}
+    ```
+    
+- **math - factorial(), sqrt(x), gcd(a,b), pi, e**
+    - factorial(x) → x! 값 반환
+    - sqrt(x) → x 제곱근 반환
+    - gcd(a, b) → a와 b의 최대공약수 반환
+    - pi → 파이 출력, e → 자연상수 e 출력
+    
+     
+    
+    ```python
+    import math
+    # factorial(x) 
+    print(math.factorial(5)) ==> 5! (120)
+    
+    #sqrt(x)
+    print(math.sqrt(7)) ==> 2.6457....
+    
+    #gcd(a,b)
+    print(math.gcd(21,14)) ==> 7
+    
+    #pi, e
+    print(math.pi) ==> 3.1415...
+    print(math.e) ==> 2.718...
+    ```
